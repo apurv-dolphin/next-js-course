@@ -1,0 +1,25 @@
+.titleheader {
+  text-align: center;
+}
+
+.imagecontainer {
+  display: flex;
+  justify-content: center;
+  padding: 14px;
+  margin: 15px
+}
+
+.image {
+  border: 5px solid grey;
+  transition: transform .2s;
+  padding: 14px;
+}
+
+.image:hover {
+  transform: scale(1.2); 
+}
+
+.content {
+  display: list-item;
+  margin: 30px
+}

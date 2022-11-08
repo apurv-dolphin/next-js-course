@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  images : {
+    domains: ["encrypted-tbn0.gstatic.com" ,"e7.pngegg.com"]
+  }
 }
 
 module.exports = nextConfig

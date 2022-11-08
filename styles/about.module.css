@@ -1,0 +1,26 @@
+.parent {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
+.about {
+  width: 50%;
+  border: 1px solid black;
+  padding: 40px;
+  background-color: #f1f1f1;
+}
+
+.lable {
+  margin: 10px 0px 10px 0px;
+}
+
+.heading {
+  text-align: center;
+  font-size: 40px;
+  margin: 10px 0px 10px 0px;
+  color: #007cff;
+}
+
+#transition-modal-description {
+  color: red;
+}
