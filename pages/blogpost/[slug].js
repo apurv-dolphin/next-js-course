@@ -23,6 +23,7 @@ export default function Slug() {
 
   return (
     <div>
+     hello
       {blog &&
         blog.map((newblog, index) => (
           <div key={index}>
