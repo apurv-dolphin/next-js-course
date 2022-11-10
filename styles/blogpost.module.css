@@ -6,20 +6,37 @@
   display: flex;
   justify-content: center;
   padding: 14px;
-  margin: 15px
+  margin: 15px;
 }
 
 .image {
   border: 5px solid grey;
-  transition: transform .2s;
+  transition: transform 0.2s;
   padding: 14px;
 }
 
 .image:hover {
-  transform: scale(1.2); 
+  transform: scale(1.2);
 }
 
 .content {
   display: list-item;
-  margin: 30px
+  margin: 30px;
+}
+
+.vedio {
+  display: flex;
+  justify-content: center;
+}
+
+.vediofram {
+  width: 400px;
+  height: 350px;
+}
+
+@media only screen and (max-width: 600px) {
+  .vediofram {
+    width: 266px;
+    height: 266px;
+  }
 }

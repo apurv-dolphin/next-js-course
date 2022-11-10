@@ -23,7 +23,6 @@ export default function Slug() {
 
   return (
     <div>
-     hello
       {blog &&
         blog.map((newblog, index) => (
           <div key={index}>
@@ -41,6 +40,12 @@ export default function Slug() {
               />
             </div>
             <div className={styles.content}>{newblog.content}</div>
+            <div className={styles.content}>
+              <h2>{newblog.title} through tutorial vedio show in below :-</h2>
+            </div>
+            <div className={styles.vedio}>
+              <iframe src={newblog.vedio} className={styles.vediofram}></iframe>
+            </div>
           </div>
         ))}
     </div>
