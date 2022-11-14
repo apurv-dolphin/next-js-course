@@ -6,16 +6,18 @@
 
 .iconleft {
   align-self: center;
-  margin-top: 5px;
+  margin-top: 25px;
   margin-right: 15px;
   font-size: xx-large;
+  animation: rotation infinite 5s linear;
 }
 
 .iconright {
-    align-self: center;
-    margin-top: 5px;
-    margin-left: 15px;
-    font-size: xx-large;
+  align-self: center;
+  margin-top: 25px;
+  margin-left: 15px;
+  font-size: xx-large;
+  animation: rotation infinite 5s linear;
 }
 
 .blogitems {
@@ -37,4 +39,18 @@
 .shortdiscription {
   display: list-item;
   margin: 12px;
+}
+
+.iconleft .iconright :not(svg) {
+  transform-origin: 0px 0px;
+  overflow: hidden;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 }

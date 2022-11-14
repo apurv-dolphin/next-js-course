@@ -1,9 +1,16 @@
-import { AppBar, IconButton, Toolbar, Typography } from "@mui/material";
 import Link from "next/link";
-import StopCircleIcon from '@mui/icons-material/StopCircle';
+import StopCircleIcon from "@mui/icons-material/StopCircle";
 import React from "react";
+import {
+  AppBar,
+  IconButton,
+  Toolbar,
+  Typography,
+} from "@material-ui/core";
+
 
 export default function Navbar() {
+
   return (
     <AppBar position="static">
       <Toolbar variant="dense">
@@ -19,7 +26,7 @@ export default function Navbar() {
           variant="h6"
           color="inherit"
           component="div"
-          marginRight={2}
+          style={{margin: "5px"}}
         >
           <Link href="/">Home</Link>
         </Typography>
@@ -27,7 +34,7 @@ export default function Navbar() {
           variant="h6"
           color="inherit"
           component="div"
-          marginRight={2}
+          style={{margin: "5px"}}
         >
           <Link href="/blog">Blog</Link>
         </Typography>
@@ -35,9 +42,17 @@ export default function Navbar() {
           variant="h6"
           color="inherit"
           component="div"
-          marginRight={2}
+          style={{margin: "5px"}}
         >
-          <Link href="/about-us">About</Link>
+          <Link href="/product">Product</Link>
+        </Typography>
+        <Typography
+          variant="h6"
+          color="inherit"
+          component="div"
+          style={{margin: "5px"}}
+        >
+          <Link href="/contact-us">Contact-us</Link>
         </Typography>
       </Toolbar>
     </AppBar>

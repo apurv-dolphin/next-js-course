@@ -30,7 +30,7 @@
 }
 
 .vediofram {
-  width: 400px;
+  width: 40%;
   height: 350px;
 }
 
@@ -38,5 +38,9 @@
   .vediofram {
     width: 266px;
     height: 266px;
+  }
+
+  .image:hover {
+    transform: scale(1);
   }
 }

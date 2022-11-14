@@ -18,8 +18,8 @@ export default function Slug() {
 
   useEffect(() => {
     setBlog(singleblog);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [router.query]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps 
+  }, [slug]);
 
   return (
     <div>
@@ -44,7 +44,11 @@ export default function Slug() {
               <h2>{newblog.title} through tutorial vedio show in below :-</h2>
             </div>
             <div className={styles.vedio}>
-              <iframe src={newblog.vedio} className={styles.vediofram}></iframe>
+              <iframe
+                src={newblog.vedio}
+                className={styles.vediofram}
+                allowFullScreen={true}
+              ></iframe>
             </div>
           </div>
         ))}

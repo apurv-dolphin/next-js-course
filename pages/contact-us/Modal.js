@@ -8,10 +8,10 @@ import Typography from "@mui/material/Typography";
 
 const style = {
   position: "absolute",
-  top: "50%",
+  top: () => (window.innerWidth <= 786 ? "50%" : "40%"),
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 400,
+  width: () => (window.innerWidth <= 786 ? 300 : 600),
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
@@ -19,7 +19,8 @@ const style = {
 };
 
 export default function FormModal(props) {
-  const { formData, handleClose , open } = props;
+    const { formData, handleClose, open } = props;
+
   return (
     <div>
       <Modal

@@ -14,15 +14,18 @@ export default function Blog() {
 
   useEffect(() => {
     setDate(sortedData);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [sortedData]);
 
   return (
     <div>
-      <div className={styles.mainblog}>        
-         <div className={styles.iconleft}> <FaReact /></div>
+      <div className={styles.mainblog}>
+        <div>
+          <FaReact className={styles.iconleft} />
+        </div>
         <h1>This is Blog Of React Road-map</h1>
-        <div className={styles.iconright}> <FaReact /></div>
+        <div>
+          <FaReact className={styles.iconright} />
+        </div>
       </div>
       {data.map((newdata) => (
         <div key={newdata.id}>
@@ -30,10 +33,14 @@ export default function Blog() {
             <Link href={`/blogpost/${newdata.slug}`}>
               <h2 className={styles.bloagheader}>{newdata.title}</h2>
             </Link>
-            <p className={styles.shortdiscription}>{newdata.shortdiscription}</p>
+            <p className={styles.shortdiscription}>
+              {newdata.shortdiscription}
+            </p>
           </div>
         </div>
       ))}
     </div>
   );
 }
+
+
