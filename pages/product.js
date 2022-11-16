@@ -12,6 +12,7 @@ import Grid from "@material-ui/core/Grid";
 import Link from "next/link";
 
 import React, { useEffect, useState } from "react";
+import ScrollToTop from "./scrollToTop";
 
 const useStyles = makeStyles({
   root: {
@@ -34,7 +35,7 @@ export default function Product(props) {
     <>
       <Grid container spacing={2} className={classes.grid}>
         {data.map((newdata, index) => (
-          <Grid item xs={12} sm={4} lg={3} key={index}>
+          <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={index}>
             <Card className={classes.root}>
               <CardActionArea>
                 <CardMedia
@@ -76,6 +77,7 @@ export default function Product(props) {
           </Grid>
         ))}
       </Grid>
+      <ScrollToTop />
     </>
   );
 }

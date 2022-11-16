@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import styles from "../styles/blog.module.css";
 import Blogdata from "./blogdata/blogdata";
-import Image from "next/image";
+import ScrollToTop from "./scrollToTop";
 
 export default function Blog() {
   const [data, setDate] = useState(Blogdata);
@@ -39,6 +39,7 @@ export default function Blog() {
           </div>
         </div>
       ))}
+      <ScrollToTop />
     </div>
   );
 }
