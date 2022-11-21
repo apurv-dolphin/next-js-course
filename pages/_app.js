@@ -2,10 +2,14 @@ import "../styles/globals.css";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import LoadingBar from "react-top-loading-bar";
 
 export default function App({ Component, pageProps }) {
+  const router = useRouter();
   const [cart, setCart] = useState({});
   const [total, setTotal] = useState(0);
+  const [progress, setProgress] = useState(0);
 
   const saveCart = (newCart) => {
     localStorage.setItem("cart", JSON.stringify(newCart));
@@ -56,6 +60,26 @@ export default function App({ Component, pageProps }) {
     }
   }, []);
 
+  useEffect(() => {
+    const token = JSON.parse(localStorage.getItem("token"));
+    console.log(token);
+
+    if (token ===  null) {
+      router.push("/login");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    router.events.on("routeChangeStart", () => {
+      setProgress(40);
+    });
+    router.events.on("routeChangeComplete", () => {
+      setProgress(100);
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <>
       <Navbar
@@ -65,10 +89,16 @@ export default function App({ Component, pageProps }) {
         clearCart={clearCart}
         total={total}
       />
+      <LoadingBar
+        color="#f11946"
+        progress={progress}
+        waitingTime={1000}
+        onLoaderFinished={() => setProgress(0)}
+      />
       <Component
         cart={cart}
         addTOCart={addTOCart}
-        removeTOCart={removeTOCart}
+        removeTOCart={removeTOCart} 
         clearCart={clearCart}
         total={total}
         {...pageProps}

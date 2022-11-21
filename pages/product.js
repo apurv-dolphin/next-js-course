@@ -1,14 +1,19 @@
 import { Grid } from "@material-ui/core";
+import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import Checkboxs from "./components/checkbox";
-import ProductList from "./components/productList";
-import ScrollToTop from "./scrollToTop";
+
+const ScrollToTop = dynamic(() => import("./scrollToTop"));
+const ProductList = dynamic(() => import("./components/productList"));
+const Checkboxs = dynamic(() => import("./components/checkbox"));
+const Loader = dynamic(() => import("./components/loader"));
 
 export default function Product() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [checkvalue, setCheckvalue] = useState([]);
   const [filterData, setFilterData] = useState([]);
+  const router = useRouter();
 
   let categoryItems = [...new Set(data.map((Val) => Val.category))];
 
@@ -47,6 +52,15 @@ export default function Product() {
     apiCall();
   }, []);
 
+  useEffect(() => {
+    const token = JSON.parse(localStorage.getItem("token"));
+
+    if (token === null) {
+      router.push("/login");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <>
       <Grid container spacing={3} style={{ width: "100%" }}>
@@ -66,7 +80,7 @@ export default function Product() {
               checkvalue={checkvalue}
             />
           ) : (
-            <>loading</>
+            <Loader />
           )}
         </Grid>
       </Grid>

@@ -2,6 +2,7 @@ import styles from "../../styles/contact.module.css";
 import React, { useState } from "react";
 import { Button, TextField } from "@mui/material";
 import FormModal from "./modal";
+import { useRouter } from "next/router";
 
 export default function About() {
   const [formData, setFormData] = useState({
@@ -11,6 +12,8 @@ export default function About() {
     contactNo: "",
   });
   const [open, setOpen] = useState(false);
+  const router = useRouter();
+
   const handleClose = () => {
     setOpen(false);
     setFormData({
@@ -96,6 +99,15 @@ export default function About() {
       setOpen(true);
     }
   };
+
+  useEffect(() => {
+    const token = JSON.parse(localStorage.getItem("token"));
+
+    if (token === null) {
+      router.push("/login");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>

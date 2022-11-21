@@ -3,10 +3,16 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import styles from "../styles/blog.module.css";
 import Blogdata from "./blogdata/blogdata";
-import ScrollToTop from "./scrollToTop";
+import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
+
+const ScrollToTop = dynamic(() => import("./scrollToTop"));
+
+
 
 export default function Blog() {
   const [data, setDate] = useState(Blogdata);
+  const  router = useRouter();
 
   const sortedData = data.sort(function (a, b) {
     return a.id - b.id;
@@ -15,6 +21,15 @@ export default function Blog() {
   useEffect(() => {
     setDate(sortedData);
   }, [sortedData]);
+
+  useEffect(() => {
+    const token = JSON.parse(localStorage.getItem("token"));
+
+    if (token ===  null) {
+      router.push("/login");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div>

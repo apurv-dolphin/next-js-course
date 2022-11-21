@@ -15,6 +15,7 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { AccountCircle } from "@mui/icons-material";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import CartSideBar from "./cartSideBar";
+import { useRouter } from "next/router";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -44,6 +45,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Navbar(props) {
+  const router = useRouter();
   const { cart, addTOCart, removeTOCart, clearCart, total } = props;
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
@@ -58,6 +60,16 @@ export default function Navbar(props) {
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
+  const logouts = () => {
+    localStorage.removeItem("token");
+
+    // eslint-disable-next-line no-restricted-globals
+    let log = confirm("Are you sure?");
+    if (log) {
+      router.push("/login");
+    }
+  };
+
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -69,6 +81,7 @@ export default function Navbar(props) {
   const handleMenuClose = () => {
     setAnchorEl(null);
     handleMobileMenuClose();
+    logouts();
   };
 
   const handleMobileMenuOpen = (event) => {

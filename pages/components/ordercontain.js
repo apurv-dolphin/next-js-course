@@ -39,7 +39,7 @@ export default function OrderContain({cart , total}) {
         </Table>
       </TableContainer>
       <div style={{ textAlign: "end", marginTop: "15px" }}>
-        <span style={{ marginRight: "50px" }}>Total : ₹ {total}</span>
+        <span style={{ marginRight: "154px" }}>Total : ₹ {total}</span>
       </div>
     </>
   );
