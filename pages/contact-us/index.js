@@ -1,5 +1,5 @@
 import styles from "../../styles/contact.module.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, TextField } from "@mui/material";
 import FormModal from "./modal";
 import { useRouter } from "next/router";
