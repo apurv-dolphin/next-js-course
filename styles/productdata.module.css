@@ -1,0 +1,29 @@
+.productcontainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.pincodesection {
+  align-self: end;
+  margin-left: 50px;
+}
+
+.productcard {
+  margin-top: 50px;
+}
+
+@media only screen and (max-width: 768px) {
+  .productcontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+
+  .productcard {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
+}

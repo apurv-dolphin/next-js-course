@@ -35,7 +35,7 @@ export default function ScrollToTop() {
               onMouseLeave={() => setShow(false)}
               style={{
                 position: "fixed",
-                bottom: "50px",
+                bottom: "100px",
                 height: "50px",
                 right: "50px",
                 border: "1px solid black",

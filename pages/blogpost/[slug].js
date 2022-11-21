@@ -18,40 +18,42 @@ export default function Slug() {
 
   useEffect(() => {
     setBlog(singleblog);
-    // eslint-disable-next-line react-hooks/exhaustive-deps 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slug]);
 
   return (
-    <div>
-      {blog &&
-        blog.map((newblog, index) => (
-          <div key={index}>
-            <div className={styles.titleheader}>
-              <h1>The title of the page {newblog.title}.</h1>
+    <>
+      <div>
+        {blog &&
+          blog.map((newblog, index) => (
+            <div key={index}>
+              <div className={styles.titleheader}>
+                <h1>The title of the page {newblog.title}.</h1>
+              </div>
+              <hr />
+              <div className={styles.imagecontainer}>
+                <Image
+                  src={newblog.image}
+                  width={300}
+                  height={250}
+                  alt="not found"
+                  className={styles.image}
+                />
+              </div>
+              <div className={styles.content}>{newblog.content}</div>
+              <div className={styles.content}>
+                <h2>{newblog.title} through tutorial vedio show in below :-</h2>
+              </div>
+              <div className={styles.vedio}>
+                <iframe
+                  src={newblog.vedio}
+                  className={styles.vediofram}
+                  allowFullScreen={true}
+                ></iframe>
+              </div>
             </div>
-            <hr />
-            <div className={styles.imagecontainer}>
-              <Image
-                src={newblog.image}
-                width={300}
-                height={250}
-                alt="not found"
-                className={styles.image}
-              />
-            </div>
-            <div className={styles.content}>{newblog.content}</div>
-            <div className={styles.content}>
-              <h2>{newblog.title} through tutorial vedio show in below :-</h2>
-            </div>
-            <div className={styles.vedio}>
-              <iframe
-                src={newblog.vedio}
-                className={styles.vediofram}
-                allowFullScreen={true}
-              ></iframe>
-            </div>
-          </div>
-        ))}
-    </div>
+          ))}
+      </div>
+    </>
   );
 }

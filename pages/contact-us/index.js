@@ -1,7 +1,7 @@
 import styles from "../../styles/contact.module.css";
 import React, { useState } from "react";
-import { Alert, Button, TextField } from "@mui/material";
-import FormModal from "./Modal";
+import { Button, TextField } from "@mui/material";
+import FormModal from "./modal";
 
 export default function About() {
   const [formData, setFormData] = useState({

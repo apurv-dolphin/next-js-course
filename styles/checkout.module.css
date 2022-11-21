@@ -1,0 +1,35 @@
+.maincontainer {
+  display: block;
+  width: 80%;
+  margin: 30px auto;
+  border: 1px dashed grey;
+  padding: 30px;
+}
+
+.header {
+  text-align: center;
+}
+.addfields {
+  display: flex;
+  margin: 15px 0px 15px 0px;
+}
+
+.fields {
+  display: flex;
+  margin: 15px 0px 15px 0px;
+}
+
+.rightfields {
+  width: 50%;
+  margin-left: 5px;
+}
+
+.leftfields {
+  width: 50%;
+  margin-right: 5px;
+}
+
+.button {
+  text-align: center;
+  margin-top: 30px;
+}

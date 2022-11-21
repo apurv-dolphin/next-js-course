@@ -1,0 +1,20 @@
+.closeicon {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cartheading {
+  align-self: center;
+  font-size: 20px;
+  margin: 0px 15px;
+}
+
+.cardcontain {
+  margin-top: 20px;
+  padding: 20px;
+}
+
+.checkout {
+  display: flex;
+  justify-content: center;
+}
