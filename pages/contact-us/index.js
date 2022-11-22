@@ -71,16 +71,16 @@ export default function About() {
   };
 
   const handleEnter = (e) => {
-    if (validate()) {
-      if (e.key === "Enter" || e.key === "NumpadEnter") {
-        fetch("http://localhost:3000/api/postcontact", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        })
-          .then((response) => response.json())
-          .then((data) => console.log("success : ", data));
-        e.preventDefault();
+    if (e.key === "Enter" || e.key === "NumpadEnter") {
+      fetch("http://localhost:3000/api/postcontact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+        .then((response) => response.json())
+        .then((data) => console.log("success : ", data));
+      e.preventDefault();
+      if (validate()) {
         setOpen(true);
       }
     }
@@ -94,7 +94,7 @@ export default function About() {
         body: JSON.stringify(formData),
       })
         .then((response) => response.json())
-        .then((data) => console.log("success : "));
+        .then((data) => console.log("success : ", data));
       e.preventDefault();
       setOpen(true);
     }
@@ -104,7 +104,7 @@ export default function About() {
     const token = JSON.parse(localStorage.getItem("token"));
 
     if (token === null) {
-      router.push("/login");
+      router.push("/login");                     
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -117,7 +117,7 @@ export default function About() {
           <div className={styles.main}>
             <div className={styles.lable}>
               <TextField
-                id="filled-basic"
+                id="filled-firstname"
                 label="First Name"
                 name="firstName"
                 variant="filled"
@@ -129,7 +129,7 @@ export default function About() {
             </div>
             <div className={styles.lable}>
               <TextField
-                id="filled-basic"
+                id="filled-lastname"
                 label="Last Name"
                 name="lastName"
                 variant="filled"
@@ -141,7 +141,7 @@ export default function About() {
             </div>
             <div className={styles.lable}>
               <TextField
-                id="filled-basic"
+                id="filled-email"
                 label="Email"
                 name="email"
                 variant="filled"
@@ -153,7 +153,7 @@ export default function About() {
             </div>
             <div className={styles.lable}>
               <TextField
-                id="filled-basic"
+                id="filled-contactnumber"
                 type="number"
                 name="contactNo"
                 value={formData.contactNo}

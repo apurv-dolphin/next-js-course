@@ -123,7 +123,7 @@ export default function Navbar(props) {
             handleMenuClose();
           }}
         >
-          <Badge badgeContent={1} color="secondary">
+          <Badge badgeContent={1} color="secondary" overlap="rectangular">
             <ShoppingCartIcon />
           </Badge>
         </IconButton>
@@ -198,6 +198,7 @@ export default function Navbar(props) {
                 <Badge
                   badgeContent={Object.keys(cart).length}
                   color="secondary"
+                  overlap="rectangular"
                 >
                   <ShoppingCartIcon />
                 </Badge>

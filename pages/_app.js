@@ -62,8 +62,6 @@ export default function App({ Component, pageProps }) {
 
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("token"));
-    console.log(token);
-
     if (token ===  null) {
       router.push("/login");
     }
