@@ -47,7 +47,6 @@ export default function Login() {
     const time = date.getTime();
 
     if (login !== null) {
-      console.log(login);
       const userData = login.filter((rd) => {
         return (
           rd.email === loginData.email && rd.password === loginData.password
