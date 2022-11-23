@@ -47,7 +47,6 @@ export default function Login() {
     const time = date.getTime();
 
     if (login !== null) {
-      console.log(login);
       const userData = login.filter((rd) => {
         return (
           rd.email === loginData.email && rd.password === loginData.password
@@ -94,9 +93,9 @@ export default function Login() {
                 label="Email"
                 name="email"
                 variant="filled"
-                value={loginData.email}
-                fullWidth
+                value={loginData.email || ""}
                 onChange={handleChange}
+                fullWidth
               />
             </div>
             <div className={styles.lable}>
@@ -121,7 +120,7 @@ export default function Login() {
                   }
                   name="password"
                   onChange={handleChange}
-                  value={loginData.password}
+                  value={loginData.password || ""}
                 />
               </FormControl>
             </div>

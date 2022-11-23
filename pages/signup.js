@@ -102,7 +102,7 @@ export default function Signup() {
                 label="First Name"
                 name="firstName"
                 variant="filled"
-                value={formData.firstName}
+                value={formData.firstName || ""}
                 onChange={handleChange}
                 fullWidth
               />
@@ -114,7 +114,7 @@ export default function Signup() {
                 label="Last Name"
                 name="lastName"
                 variant="filled"
-                value={formData.lastName}
+                value={formData.lastName || ""}
                 onChange={handleChange}
                 fullWidth
               />
@@ -126,7 +126,7 @@ export default function Signup() {
                 label="Email"
                 name="email"
                 variant="filled"
-                value={formData.email}
+                value={formData.email || ""}
                 onChange={handleChange}
                 fullWidth
               />
@@ -137,7 +137,7 @@ export default function Signup() {
                 id="filled-basic"
                 type="number"
                 name="contactNo"
-                value={formData.contactNo}
+                value={formData.contactNo || ""}
                 label="Contact No."
                 variant="filled"
                 onChange={handleChange}
@@ -149,7 +149,7 @@ export default function Signup() {
               <TextField
                 id="filled-basic"
                 name="password"
-                value={formData.password}
+                value={formData.password || ""}
                 label="Password"
                 variant="filled"
                 onChange={handleChange}

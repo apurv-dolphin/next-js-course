@@ -121,7 +121,7 @@ export default function About() {
                 label="First Name"
                 name="firstName"
                 variant="filled"
-                value={formData.firstName}
+                value={formData.firstName || ""}
                 onChange={handleChange}
                 fullWidth
               />
@@ -133,7 +133,7 @@ export default function About() {
                 label="Last Name"
                 name="lastName"
                 variant="filled"
-                value={formData.lastName}
+                value={formData.lastName || ""}
                 onChange={handleChange}
                 fullWidth
               />
@@ -145,7 +145,7 @@ export default function About() {
                 label="Email"
                 name="email"
                 variant="filled"
-                value={formData.email}
+                value={formData.email || ""}
                 onChange={handleChange}
                 fullWidth
               />
@@ -156,7 +156,7 @@ export default function About() {
                 id="filled-contactnumber"
                 type="number"
                 name="contactNo"
-                value={formData.contactNo}
+                value={formData.contactNo || ""}
                 label="Contact No."
                 variant="filled"
                 onChange={handleChange}
