@@ -8,11 +8,9 @@ import dynamic from "next/dynamic";
 
 const ScrollToTop = dynamic(() => import("./scrollToTop"));
 
-
-
 export default function Blog() {
   const [data, setDate] = useState(Blogdata);
-  const  router = useRouter();
+  const router = useRouter();
 
   const sortedData = data.sort(function (a, b) {
     return a.id - b.id;
@@ -25,10 +23,9 @@ export default function Blog() {
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("token"));
 
-    if (token ===  null) {
+    if (token === null) {
       router.push("/login");
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -43,20 +40,16 @@ export default function Blog() {
         </div>
       </div>
       {data.map((newdata) => (
-        <div key={newdata.id}>
-          <div className={styles.blogitems}>
-            <Link href={`/blogpost/${newdata.slug}`}>
-              <h2 className={styles.bloagheader}>{newdata.title}</h2>
-            </Link>
-            <p className={styles.shortdiscription}>
-              {newdata.shortdiscription}
-            </p>
-          </div>
+        <div key={newdata.id} className={styles.blogitems}>
+          <Link href={`/blogpost/${newdata.slug}`}>
+            <h2 className={styles.bloagheader}>{newdata.title}</h2>
+          </Link>
+          <p className={styles.shortdiscription}>
+            {newdata.shortdiscription}
+          </p>
         </div>
       ))}
       <ScrollToTop />
     </div>
   );
 }
-
-

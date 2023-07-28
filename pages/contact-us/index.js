@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 
 export default function About() {
   const [formData, setFormData] = useState({
+    id: new Date().getTime(),
     firstName: "",
     lastName: "",
     email: "",
@@ -17,6 +18,7 @@ export default function About() {
   const handleClose = () => {
     setOpen(false);
     setFormData({
+      id: "",
       firstName: "",
       lastName: "",
       email: "",
@@ -104,9 +106,8 @@ export default function About() {
     const token = JSON.parse(localStorage.getItem("token"));
 
     if (token === null) {
-      router.push("/login");                     
+      router.push("/login");
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

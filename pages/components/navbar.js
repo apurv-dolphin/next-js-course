@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import Link from "next/link";
 import StopCircleIcon from "@mui/icons-material/StopCircle";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import {
   AppBar,
   Badge,
@@ -16,6 +17,7 @@ import { AccountCircle } from "@mui/icons-material";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import CartSideBar from "./cartSideBar";
 import { useRouter } from "next/router";
+import { useMediaQuery } from "@mui/material";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -32,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
   sectionDesktop: {
     display: "none",
-    [theme.breakpoints.up("md")]: {
+    [theme.breakpoints.up("sm")]: {
       display: "flex",
     },
   },
@@ -40,17 +42,22 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     [theme.breakpoints.up("md")]: {
       display: "none",
+      marginLeft: "auto",
     },
   },
 }));
 
 export default function Navbar(props) {
   const router = useRouter();
+  // eslint-disable-next-line no-unused-vars
   const { cart, addTOCart, removeTOCart, clearCart, total } = props;
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
+  const isMobile = useMediaQuery("(max-width:768px)");
+
+  const isMobileMemo = useMemo(() => isMobile, [isMobile]);
 
   const cartOpen = () => {
     setOpen(true);
@@ -120,7 +127,6 @@ export default function Navbar(props) {
           color="inherit"
           onClick={() => {
             cartOpen();
-            handleMenuClose();
           }}
         >
           <Badge badgeContent={1} color="secondary" overlap="rectangular">
@@ -188,43 +194,57 @@ export default function Navbar(props) {
             >
               <Link href="/contact-us">Contact-us</Link>
             </Typography>
+            <Typography
+              variant="h6"
+              color="inherit"
+              component="div"
+              style={{ margin: "5px" }}
+            >
+              <Link href="/users">Users</Link>
+            </Typography>
             <div className={classes.grow} />
-            <div className={classes.sectionDesktop}>
-              <IconButton
-                aria-label="show 17 new notifications"
-                color="inherit"
-                onClick={cartOpen}
-              >
-                <Badge
-                  badgeContent={Object.keys(cart).length}
-                  color="secondary"
-                  overlap="rectangular"
+            {isMobileMemo ? (
+              <div className={classes.sectionMobile}>
+                <IconButton
+                  aria-label="show more"
+                  aria-controls={mobileMenuId}
+                  aria-haspopup="true"
+                  onClick={handleMobileMenuOpen}
+                  color="inherit"
                 >
-                  <ShoppingCartIcon />
-                </Badge>
-              </IconButton>
-              <IconButton
-                edge="end"
-                aria-label="account of current user"
-                aria-controls={menuId}
-                aria-haspopup="true"
-                onClick={handleProfileMenuOpen}
-                color="inherit"
+                  <MoreIcon />
+                </IconButton>
+              </div>
+            ) : (
+              <div
+                className={classes.sectionDesktop}
+                style={{ marginLeft: "auto" }}
               >
-                <AccountCircle />
-              </IconButton>
-            </div>
-            <div className={classes.sectionMobile}>
-              <IconButton
-                aria-label="show more"
-                aria-controls={mobileMenuId}
-                aria-haspopup="true"
-                onClick={handleMobileMenuOpen}
-                color="inherit"
-              >
-                <MoreIcon />
-              </IconButton>
-            </div>
+                <IconButton
+                  aria-label="show 17 new notifications"
+                  color="inherit"
+                  onClick={cartOpen}
+                >
+                  <Badge
+                    badgeContent={Object.keys(cart).length}
+                    color="secondary"
+                    overlap="rectangular"
+                  >
+                    <ShoppingCartIcon />
+                  </Badge>
+                </IconButton>
+                <IconButton
+                  edge="end"
+                  aria-label="account of current user"
+                  aria-controls={menuId}
+                  aria-haspopup="true"
+                  onClick={handleProfileMenuOpen}
+                  color="inherit"
+                >
+                  <AccountCircle />
+                </IconButton>
+              </div>
+            )}
           </Toolbar>
         </AppBar>
         {renderMobileMenu}

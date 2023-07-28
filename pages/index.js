@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import styles from "../styles/Home.module.css";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
@@ -15,7 +16,6 @@ export default function Home() {
     if (token === null) {
       router.push("/login");
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <>
@@ -28,4 +28,3 @@ export default function Home() {
     </>
   );
 }
-

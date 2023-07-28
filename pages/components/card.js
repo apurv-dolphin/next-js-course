@@ -47,7 +47,7 @@ export default function AdvetiseCard() {
             Welcome to AK store
           </Typography>
           <Typography variant="subtitle1" color="textSecondary">
-             Apurv Khalas
+            Apurv Khalas
           </Typography>
         </CardContent>
         <div className={classes.controls}>

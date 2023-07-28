@@ -1,5 +1,17 @@
-import { makeStyles, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@material-ui/core";
+/* eslint-disable react/prop-types */
+import {
+  Box,
+  makeStyles,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
+} from "@material-ui/core";
 import React from "react";
+import Address from "./address";
 
 const useStyles = makeStyles({
   root: {
@@ -10,10 +22,23 @@ const useStyles = makeStyles({
   },
 });
 
-export default function OrderContain({cart , total}) {
+export default function OrderContain({ cart, total }) {
   const classes = useStyles();
   return (
     <>
+      <Box sx={{ width: "100%" }}>
+        <Typography variant="h2" gutterBottom style={{ textDecoration: "underline", textAlign: "center" }}>
+          Ak Store
+        </Typography>
+      </Box>
+      <Box>
+        <Address />
+      </Box>
+      <Box>
+        <Typography variant="h5" gutterBottom style={{ textDecoration: "underline", textAlign: "center", marginTop: "10px" }}>
+          Your Order Details
+        </Typography>
+      </Box>
       <TableContainer>
         <Table className={classes.table} aria-label="customized table">
           <TableHead>

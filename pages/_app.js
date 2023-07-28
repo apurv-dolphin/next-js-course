@@ -1,3 +1,5 @@
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable react/prop-types */
 import "../styles/globals.css";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
@@ -65,7 +67,6 @@ export default function App({ Component, pageProps }) {
     if (token ===  null) {
       router.push("/login");
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -75,8 +76,7 @@ export default function App({ Component, pageProps }) {
     router.events.on("routeChangeComplete", () => {
       setProgress(100);
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [router]);
 
   return (
     <>
@@ -97,7 +97,7 @@ export default function App({ Component, pageProps }) {
       <Component
         cart={cart}
         addTOCart={addTOCart}
-        removeTOCart={removeTOCart} 
+        removeTOCart={removeTOCart}
         clearCart={clearCart}
         total={total}
         {...pageProps}

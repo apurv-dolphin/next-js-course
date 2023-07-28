@@ -48,15 +48,17 @@ export default function CartDetailsTable({ cart, total }) {
           </TableBody>
         </Table>
       </TableContainer>
-      <div style={{ textAlign: "end", marginTop: "15px" }}>
+      <div style={{ display: "flex", alignItems: "center", margin: "15px 30px", justifyContent: "end" }}>
         <span style={{ marginRight: "50px" }}>Total : ₹ {total}</span>
-        <Button
-          variant="contained"
-          color="secondary"
-          disabled={Object.keys(cart).length === 0}
-        >
-          <Link href="/order">Pay</Link>
-        </Button>
+        <Link href="/order">
+          <Button
+            variant="contained"
+            color="secondary"
+            disabled={Object.keys(cart).length === 0}
+          >
+            Pay
+          </Button>
+        </Link>
       </div>
     </>
   );
