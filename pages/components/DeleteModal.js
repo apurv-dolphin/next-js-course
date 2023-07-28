@@ -35,11 +35,11 @@ export default function DeleteModal(props) {
       onClose={handleClose}
       aria-describedby="alert-dialog-slide-description"
     >
-      <DialogTitle>{"Are you sure?"}</DialogTitle>
-      <DialogActions>
-        <Button onClick={handleClose}>Cancel</Button>
-        <Button onClick={handleDelete}>Delete</Button>
-      </DialogActions>
+        <DialogTitle>{"Are you sure?"}</DialogTitle>
+        <DialogActions>
+          <Button onClick={handleClose}>Cancel</Button>
+          <Button onClick={handleDelete}>Delete</Button>
+        </DialogActions>
     </Dialog>
   );
 }
