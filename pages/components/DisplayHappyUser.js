@@ -77,36 +77,53 @@ export default function DisplayHappyUser() {
             <TableRow>
               <StyledTableCell>No#</StyledTableCell>
               <StyledTableCell>FirstName</StyledTableCell>
-              <StyledTableCell align="right">LastName</StyledTableCell>
-              <StyledTableCell align="right">Email</StyledTableCell>
-              <StyledTableCell align="right">Contact No.</StyledTableCell>
-              <StyledTableCell align="right">Action</StyledTableCell>
+              <StyledTableCell align="center">LastName</StyledTableCell>
+              <StyledTableCell align="center">Email</StyledTableCell>
+              <StyledTableCell align="center">Contact No.</StyledTableCell>
+              <StyledTableCell align="center">Action</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {userData.map((row, i) => (
-              <StyledTableRow key={i}>
-                <StyledTableCell component="th" scope="row">
-                  {i + 1}
-                </StyledTableCell>
-                <StyledTableCell component="th" scope="row">
-                  {row.firstName}
-                </StyledTableCell>
-                <StyledTableCell align="right">{row.lastName}</StyledTableCell>
-                <StyledTableCell align="right">{row.email}</StyledTableCell>
-                <StyledTableCell align="right">{row.contactNo}</StyledTableCell>
-                <StyledTableCell align="right">
-                  <DeleteIcon
-                    className={styles.icons}
-                    onClick={() => handleClickDeleteOpen(row)}
-                  />
-                  <EditIcon
-                    className={styles.icons}
-                    onClick={() => handleClickOpen(row)}
-                  />
+            {userData.length === 0 ? (
+              <StyledTableRow>
+                <StyledTableCell
+                  component="th"
+                  scope="row"
+                  align="center"
+                  colSpan={6}
+                >
+                  No Data Found
                 </StyledTableCell>
               </StyledTableRow>
-            ))}
+            ) : (
+              userData.map((row, i) => (
+                <StyledTableRow key={i}>
+                  <StyledTableCell component="th" scope="row">
+                    {i + 1}
+                  </StyledTableCell>
+                  <StyledTableCell component="th" scope="row">
+                    {row.firstName}
+                  </StyledTableCell>
+                  <StyledTableCell align="center">
+                    {row.lastName}
+                  </StyledTableCell>
+                  <StyledTableCell align="center">{row.email}</StyledTableCell>
+                  <StyledTableCell align="center">
+                    {row.contactNo}
+                  </StyledTableCell>
+                  <StyledTableCell align="center">
+                    <DeleteIcon
+                      className={styles.icons}
+                      onClick={() => handleClickDeleteOpen(row)}
+                    />
+                    <EditIcon
+                      className={styles.icons}
+                      onClick={() => handleClickOpen(row)}
+                    />
+                  </StyledTableCell>
+                </StyledTableRow>
+              ))
+            )}
           </TableBody>
         </Table>
       </TableContainer>
