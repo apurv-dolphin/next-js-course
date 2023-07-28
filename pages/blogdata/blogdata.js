@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Blogdata() {
   const data = [
     {
@@ -155,7 +153,8 @@ export default function Blogdata() {
       author: "Apurv Khalas",
       image:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWkm_4qQn3GkE7_8fmnQ97aWLoSCOygbQRvQ&usqp=CAU",
-      vedio: "https://www.youtube.com/embed/DZKOunP-WLQ&list=PLu0W_9lII9agtWvR_TZdb_r0dNI8-lDwG",
+      vedio:
+        "https://www.youtube.com/embed/DZKOunP-WLQ&list=PLu0W_9lII9agtWvR_TZdb_r0dNI8-lDwG",
       slug: "how-to-learn-next.js",
     },
     {
@@ -168,7 +167,8 @@ export default function Blogdata() {
       author: "Apurv Khalas",
       image:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTT7l7X8v9nVOdDEe6HMr_URDYKddS1M4S6w&usqp=CAU",
-      vedio: "https://www.youtube.com/embed/SVFjgV2F_io&list=PL8p2I9GklV44eT51JPju4LsTQlce6DPtx",
+      vedio:
+        "https://www.youtube.com/embed/SVFjgV2F_io&list=PL8p2I9GklV44eT51JPju4LsTQlce6DPtx",
       slug: "how-to-learn-typescript",
     },
   ];

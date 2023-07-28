@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import {
   Button,
   makeStyles,
@@ -8,7 +7,7 @@ import {
   useTheme,
 } from "@material-ui/core";
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
 
@@ -43,9 +42,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Carousel() {
   const classes = useStyles();
   const theme = useTheme();
-  const [data, setData] = useState([]);
   const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = data.length;
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -59,17 +56,6 @@ export default function Carousel() {
     setActiveStep(step);
   };
 
-  const getImage = async () => {
-    await fetch("https://60ff90a3bca46600171cf36d.mockapi.io/api/products")
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-      });
-  };
-  useEffect(() => {
-    getImage();
-  }, []);
-
   return (
     <div className={classes.root}>
       <Paper square elevation={0} className={classes.header}>
@@ -81,16 +67,34 @@ export default function Carousel() {
         onChangeIndex={handleStepChange}
         enableMouseEvents
       >
-        {data.map((step, index) => (
-          <div key={step.id}>
-            {Math.abs(activeStep - index) <= 2 ? (
-              <img className={classes.img} src={step.image} alt={step.label} />
-            ) : null}
-          </div>
-        ))}
+        <img
+          className={classes.img}
+          src="http://loremflickr.com/640/480/transport"
+          alt="transport"
+        />
+        <img
+          className={classes.img}
+          src="http://loremflickr.com/640/480/city"
+          alt="city"
+        />
+        <img
+          className={classes.img}
+          src="https://loremflickr.com/640/480/food"
+          alt="food"
+        />
+        <img
+          className={classes.img}
+          src="https://loremflickr.com/640/480/animals"
+          alt="animals"
+        />
+        <img
+          className={classes.img}
+          src="https://loremflickr.com/640/480/sports"
+          alt="sports"
+        />
       </AutoPlaySwipeableViews>
       <MobileStepper
-        steps={maxSteps}
+        steps={5}
         position="static"
         variant="text"
         activeStep={activeStep}
@@ -98,7 +102,7 @@ export default function Carousel() {
           <Button
             size="small"
             onClick={handleNext}
-            disabled={activeStep === maxSteps - 1}
+            disabled={activeStep === 5 - 1}
           >
             Next
             {theme.direction === "rtl" ? (

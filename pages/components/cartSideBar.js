@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+/* eslint-disable react/prop-types */
+import React from "react";
 import CartCard from "./cartCard";
 import CloseIcon from "@mui/icons-material/Close";
 import { Button, Divider, Drawer } from "@material-ui/core";
@@ -7,7 +8,7 @@ import Link from "next/link";
 
 export default function CartSideBar(props) {
   const { cartClose, clearCart, cart, removeTOCart , addTOCart } = props;
-  const [state, setState] = React.useState({
+  const [state, ] = React.useState({
     right: false,
   });
 

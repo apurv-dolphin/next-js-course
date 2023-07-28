@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import {
   Button,
@@ -112,7 +113,7 @@ export default function ProductList(props) {
                 </CardActionArea>
                 <CardActions>
                   <Link href={`/productdata/${newdata.slug}`}>
-                    <Button size="small" color="primary">
+                    <Button size="small" variant="text" color="primary">
                       MoreInformation
                     </Button>
                   </Link>

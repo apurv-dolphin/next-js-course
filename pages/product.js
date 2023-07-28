@@ -32,7 +32,6 @@ export default function Product() {
     checkvalue.map((item) =>
       data.map((newitem) => {
         if (newitem.category === item) {
-          // eslint-disable-next-line react-hooks/exhaustive-deps
           filterdata = [...filterdata, newitem];
         }
       })
@@ -58,7 +57,6 @@ export default function Product() {
     if (token === null) {
       router.push("/login");
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
