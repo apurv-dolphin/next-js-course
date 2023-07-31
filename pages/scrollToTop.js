@@ -4,7 +4,7 @@ import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp
 
 export default function ScrollToTop() {
   const [topButton, setTopButtton] = useState(false);
-  const [show, setShow] = useState(false);
+  const [, setShow] = useState(false);
   const target = useRef(null);
 
   useEffect(() => {
@@ -37,17 +37,18 @@ export default function ScrollToTop() {
                 position: "fixed",
                 bottom: "100px",
                 height: "50px",
-                right: "50px",
-                border: "1px solid black",
-                background: "oldlace",  
-                boxShadow: "2px 3px 35px 6px grey",
+                right: "15px",
+                border: "1px solid #478af1",
+                borderRadius: "15px",
+                background: "#478af1",
+                boxShadow: "2px 3px 15px 0px grey",
               }}
               onClick={() => {
                 setShow(false);
                 scrollUp();
               }}
             >
-              <KeyboardDoubleArrowUpIcon />
+              <KeyboardDoubleArrowUpIcon style={{ color: '#fff' }}/>
             </Button>
           </Tooltip>
         </>

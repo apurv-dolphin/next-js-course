@@ -68,11 +68,10 @@ export default function Navbar(props) {
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const logouts = () => {
-    localStorage.removeItem("token");
-
     // eslint-disable-next-line no-restricted-globals
     let log = confirm("Are you sure?");
     if (log) {
+      localStorage.removeItem("token");
       router.push("/login");
     }
   };

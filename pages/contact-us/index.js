@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Button, TextField } from "@mui/material";
 import FormModal from "./modal";
 import { useRouter } from "next/router";
+import RatingStar from "../components/ratingStar";
 
 export default function About() {
   const [formData, setFormData] = useState({
@@ -11,9 +12,67 @@ export default function About() {
     lastName: "",
     email: "",
     contactNo: "",
+    ratingValue: "0",
   });
   const [open, setOpen] = useState(false);
+  const [test, setTest] = useState("");
+  const [passHide, setPassHide] = useState(true);
+  const [testError, setTestError] = useState([]);
+  const [fontColor, setFontColor] = useState("");
+  const [massage, setMassage] = useState("");
   const router = useRouter();
+
+  const validatePassword = (value) => {
+    const errors = [];
+
+    if (value.length < 3) {
+      setFontColor("red");
+      setMassage("Week");
+    }
+    if (value.length > 3 && value.length < 7) {
+      setFontColor("blue");
+      setMassage("Modrate");
+    }
+    if (value.length > 8) {
+      setFontColor("green");
+      setMassage("Strong");
+    }
+    if (value.length < 8) {
+      errors.push("Your password must be at least 8 characters");
+    }
+    if (value.length > 32) {
+      errors.push("Your password must be at max 32 characters");
+    }
+    if (value.search(/[a-z]/) < 0) {
+      errors.push("Your password must contain at least one lower case letter.");
+    }
+    if (value.search(/[A-Z]/) < 0) {
+      errors.push("Your password must contain at least one upper case letter.");
+    }
+
+    if (value.search(/[0-9]/) < 0) {
+      errors.push("Your password must contain at least one digit.");
+    }
+    if (value.search(/[!@#\\$%\\^&\\*_]/) < 0) {
+      errors.push(
+        "Your password must contain at least one special char from -[ ! @ # $ % ^ & * _ ]"
+      );
+    }
+
+    setTestError(errors); // Update the state with the new errors
+    return errors.length === 0;
+  };
+  const handleTestChange = (e) => {
+    setTest(e.target.value);
+    validatePassword(e.target.value);
+  };
+  const handleClear = () => {
+    setTest("");
+    setTestError([]);
+    setFontColor("");
+    setMassage("");
+  };
+  const ShowPass = () => setPassHide(!passHide);
 
   const handleClose = () => {
     setOpen(false);
@@ -23,6 +82,7 @@ export default function About() {
       lastName: "",
       email: "",
       contactNo: "",
+      ratingValue: "0",
     });
   };
   const [error, setError] = useState({});
@@ -44,7 +104,7 @@ export default function About() {
       return false;
     }
     if (!formData.lastName) {
-      error.lastName = "please write your last name here";
+      error.lastName = "please write your lyellowast name here";
       setError(error);
       return false;
     }
@@ -165,6 +225,12 @@ export default function About() {
               />
               {!error.contactNo ? "" : error.contactNo}
             </div>
+            <div className={styles.lable}>
+              <RatingStar
+                value={formData.ratingValue}
+                handleChange={handleChange}
+              />
+            </div>
             <Button variant="contained" color="primary" onClick={handlesubmit}>
               Submit
             </Button>
@@ -174,6 +240,55 @@ export default function About() {
       {open && (
         <FormModal formData={formData} handleClose={handleClose} open={open} />
       )}
+      <div className={styles.passChecker}>
+        <h1 className={styles.conatinerHeader}>Password Strength Checker</h1>
+        <div className={styles.subContainer}>
+          <input
+            className={styles.passinput}
+            type={passHide ? "password" : "text"}
+            value={test}
+            onChange={handleTestChange}
+          />
+
+          <div className={styles.buttonContainer}>
+            <button
+              className={styles.passBtn}
+              style={{
+                marginRight: "10px",
+                background: "#007afa",
+                color: "#fff",
+              }}
+              onClick={ShowPass}
+            >
+              {passHide ? "Show" : "Hide"}
+            </button>
+
+            <button
+              className={styles.passBtn}
+              style={{
+                background: "red",
+                color: "#fff",
+              }}
+              onClick={handleClear}
+            >
+              Clear
+            </button>
+          </div>
+
+          <div className={styles.textContainer}>
+            <p style={{ color: fontColor }}>{massage}</p>
+            {testError.length === 0 && test !== "" && (
+              <p style={{ color: "green" }}>Password is valid. Success!</p>
+            )}
+
+            {testError.map((error, index) => (
+              <p key={index} style={{ color: fontColor }}>
+                {error}
+              </p>
+            ))}
+          </div>
+        </div>
+      </div>
     </>
   );
 }

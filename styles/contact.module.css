@@ -25,6 +25,49 @@
   color: red;
 }
 
+.passChecker {
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+  flex-direction: column;
+  width: 50%;
+  margin: 1.5rem auto;
+  background: #f1f1f1;
+}
+
+.conatinerHeader {
+  text-align: center;
+  color: #007afa;
+}
+
+.subContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.passinput,
+.textContainer {
+  width: 85%;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.buttonContainer {
+  margin-right: 7.8%;
+  margin-top: 8px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.passBtn {
+  width: 20%;
+  height: 35px;
+  cursor: pointer;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+}
+
 @media only screen and (max-width: 600px) {
   .heading {
     font-size: 20px;

@@ -171,6 +171,31 @@ export default function Blogdata() {
         "https://www.youtube.com/embed/SVFjgV2F_io&list=PL8p2I9GklV44eT51JPju4LsTQlce6DPtx",
       slug: "how-to-learn-typescript",
     },
+    {
+      id: "14",
+      title: "How to learn Vue JS",
+      shortdiscription:
+        "There are three different ways to learn Vue js for beginners: books/websites, videos, and podcasts. As a general of rule, it's recommended to know Javascript, HTML, and CSS before you learn Vue js for beginners.",
+      content:
+        "Frontend Frameworks are extremely popular because they give us this reactive, great User Experience we know from Mobile Apps — but now in the Browser! No wonder that Jobs requiring Frontend Framework Skills like VueJS are amongst the best-paid ones in the Industry.Vue JS 2 has quickly become incredibly popular, both due to how powerful the JavaScript framework is, but also how easy it is to learn. Vue is much easier to learn than other JavaScript frameworks such as Angular and React, meaning that you can start building your first Vue application in no time. We have picked the best Vue Js tutorials and courses to take.",
+      author: "Apurv Khalas",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQybQ9296S3HQxCEmN2B7gK4a2H5hlUCBYKIA&usqp=CAU",
+      vedio: "https://www.youtube.com/embed/1GNsWa_EZdw",
+      slug: "how-to-learn-vue-js",
+    },
+    {
+      id: "15",
+      title: "How to learn Nuxt JS",
+      shortdiscription:
+        "Nuxt.js is a server-side rendering framework built on Vue.js. It abstracts away most of the complex configuration involved in managing asynchronous data, middleware, and routing.",
+      content:
+        "Nuxt.js is a server-side rendering framework built on Vue.js. It abstracts away most of the complex configuration involved in managing asynchronous data, middleware, and routing. It also helps structure Vue.js applications using industry-standard architecture for building simple or enterprise Vue.js applications.nuxtServerInit (Action): This is the first lifecycle hook that is called on the server-side if Vuex store is enabled. It is a Vuex action that is called only on server-side to pre-populate the store and finally, it can be used to dispatch other actions in the Vuex store.",
+      author: "Apurv Khalas",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqrTedUNeHoi4bSOkdPDfnsHsnlW0GDtJfCQ&usqp=CAU",
+      vedio: "https://www.youtube.com/embed/ww94Jvi8JJo",
+      slug: "how-to-learn-nuxt-js",
+    },
   ];
   return data;
 }
