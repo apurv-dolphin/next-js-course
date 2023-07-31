@@ -7,7 +7,7 @@ import {
   InputLabel,
   TextField,
 } from "@material-ui/core";
-import { Router, Visibility, VisibilityOff } from "@material-ui/icons";
+import { Visibility, VisibilityOff } from "@material-ui/icons";
 import React, { useEffect, useState } from "react";
 import styles from "../styles/login.module.css";
 import Link from "next/link";

@@ -12,6 +12,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import styles from "../../styles/user.module.css";
 import EditModal from "./EditModal";
 import DeleteModal from "./DeleteModal";
+import { Rating } from "@mui/material";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -63,7 +64,9 @@ export default function DisplayHappyUser() {
       headers: { "Content-Type": "application/json" },
     })
       .then((res) => res.json())
-      .then((data) => setUserData(data));
+      .then((data) => {
+        setUserData(data);
+      });
   };
 
   useEffect(() => {
@@ -80,6 +83,7 @@ export default function DisplayHappyUser() {
               <StyledTableCell align="center">LastName</StyledTableCell>
               <StyledTableCell align="center">Email</StyledTableCell>
               <StyledTableCell align="center">Contact No.</StyledTableCell>
+              <StyledTableCell align="center">Rating</StyledTableCell>
               <StyledTableCell align="center">Action</StyledTableCell>
             </TableRow>
           </TableHead>
@@ -110,6 +114,13 @@ export default function DisplayHappyUser() {
                   <StyledTableCell align="center">{row.email}</StyledTableCell>
                   <StyledTableCell align="center">
                     {row.contactNo}
+                  </StyledTableCell>
+                  <StyledTableCell align="center">
+                    <Rating
+                      name="ratingValue"
+                      value={row.ratingValue}
+                      readOnly
+                    />
                   </StyledTableCell>
                   <StyledTableCell align="center">
                     <DeleteIcon

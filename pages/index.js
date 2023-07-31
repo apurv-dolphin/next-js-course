@@ -2,10 +2,8 @@
 import styles from "../styles/Home.module.css";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import dynamic from "next/dynamic";
-
-const Carousel = dynamic(() => import("./components/carousel"));
-const AdvertiseCard = dynamic(() => import("./components/card"));
+import CustomCarousel from "./components/carousel";
+import AdvetiseCard from "./components/card";
 
 export default function Home() {
   const router = useRouter();
@@ -19,11 +17,11 @@ export default function Home() {
   }, []);
   return (
     <>
-      <Carousel />
+      <CustomCarousel />
       <div className={styles.maincard}>
-        <AdvertiseCard />
-        <AdvertiseCard />
-        <AdvertiseCard />
+        <AdvetiseCard />
+        <AdvetiseCard />
+        <AdvetiseCard />
       </div>
     </>
   );

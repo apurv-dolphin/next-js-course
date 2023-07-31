@@ -5,7 +5,7 @@ import Blogdata from "../blogdata/blogdata";
 import styles from "../../styles/blogpost.module.css";
 
 export default function Slug() {
-  const [data, setData] = useState(Blogdata);
+  const [data, ] = useState(Blogdata);
   const [blog, setBlog] = useState();
   const router = useRouter();
   const { slug } = router.query;
@@ -18,7 +18,6 @@ export default function Slug() {
 
   useEffect(() => {
     setBlog(singleblog);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slug]);
 
   return (

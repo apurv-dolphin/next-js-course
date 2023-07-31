@@ -10,6 +10,12 @@ import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
 import React from "react";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
+import Banner1 from "../Images/Banner1.jpg";
+import Banner2 from "../Images/Banner2.jpg";
+import Banner3 from "../Images/Banner3.jpg";
+import Banner4 from "../Images/Banner4.jpg";
+import Banner5 from "../Images/Banner5.jpg";
+import Image from "next/image";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -36,10 +42,11 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "60%",
     overflow: "hidden",
     width: "100%",
+    objectFit: "contain",
   },
 }));
 
-export default function Carousel() {
+export default function CustomCarousel() {
   const classes = useStyles();
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
@@ -67,31 +74,11 @@ export default function Carousel() {
         onChangeIndex={handleStepChange}
         enableMouseEvents
       >
-        <img
-          className={classes.img}
-          src="http://loremflickr.com/640/480/transport"
-          alt="transport"
-        />
-        <img
-          className={classes.img}
-          src="http://loremflickr.com/640/480/city"
-          alt="city"
-        />
-        <img
-          className={classes.img}
-          src="https://loremflickr.com/640/480/food"
-          alt="food"
-        />
-        <img
-          className={classes.img}
-          src="https://loremflickr.com/640/480/animals"
-          alt="animals"
-        />
-        <img
-          className={classes.img}
-          src="https://loremflickr.com/640/480/sports"
-          alt="sports"
-        />
+        <Image className={classes.img} src={Banner1} alt="transport" />
+        <Image className={classes.img} src={Banner2} alt="city" />
+        <Image className={classes.img} src={Banner3} alt="food" />
+        <Image className={classes.img} src={Banner4} alt="animals" />
+        <Image className={classes.img} src={Banner5} alt="sports" />
       </AutoPlaySwipeableViews>
       <MobileStepper
         steps={5}

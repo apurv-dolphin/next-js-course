@@ -6,6 +6,7 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
+import { Rating } from "@mui/material";
 
 export default function EditModal(props) {
   const { open, handleClose, singleData, getUser } = props;
@@ -89,6 +90,7 @@ export default function EditModal(props) {
           defaultValue={singleData.contactNo || ""}
           onChange={handleChange}
         />
+        <Rating name="ratingValue" value={singleData.ratingValue} readOnly />
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>Cancel</Button>
