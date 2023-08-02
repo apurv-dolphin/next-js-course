@@ -71,7 +71,7 @@ export default function App({ Component, pageProps }) {
 
   useEffect(() => {
     router.events.on("routeChangeStart", () => {
-      setProgress(40);
+      setProgress(70);
     });
     router.events.on("routeChangeComplete", () => {
       setProgress(100);
@@ -91,7 +91,7 @@ export default function App({ Component, pageProps }) {
         color="#f11946"
         height={4}
         progress={progress}
-        waitingTime={1000}
+        waitingTime={300}
         onLoaderFinished={() => setProgress(0)}
       />
       <Component

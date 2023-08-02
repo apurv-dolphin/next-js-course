@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Box, Button } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
 import React, { createRef } from "react";
@@ -21,7 +22,7 @@ export default function Order({ cart, total, clearCart }) {
       </div>
       <Box>
         <Link href={"/product"}>
-        <Button onClick={clearCart}>Back</Button>
+          <Button onClick={clearCart}>Back</Button>
         </Link>
         <Pdf
           targetRef={ref}
