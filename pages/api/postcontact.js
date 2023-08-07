@@ -2,7 +2,9 @@ import * as fs from "fs";
 export default async function handler(req, res) {
   if (req.method === "POST") {
     // Create new data
-    // let data = await fs.promises.readdir("contactdata");
+    // below code is use for read the component data
+    let data = await fs.promises.readdir("contactdata");
+    console.log(data);
     fs.promises.writeFile(
       `contactdata/user${req.body.id}.json`,
       JSON.stringify(req.body)

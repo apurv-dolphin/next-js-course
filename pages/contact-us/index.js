@@ -267,7 +267,7 @@ export default function About() {
               className={styles.passBtn}
               style={{
                 background: "red",
-                color: "#fff",
+                color: "#ffff",
               }}
               onClick={handleClear}
             >
