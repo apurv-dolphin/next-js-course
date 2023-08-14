@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Box, Button, Divider, TextField } from "@material-ui/core";
 import React, { useState } from "react";
 import styles from "../styles/checkout.module.css";

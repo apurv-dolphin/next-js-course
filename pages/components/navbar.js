@@ -150,7 +150,10 @@ export default function Navbar(props) {
 
   return (
     <>
-      <div className={classes.grow}>
+      <div
+        className={classes.grow}
+        style={{ position: "relative", zIndex: 999 }}
+      >
         <AppBar position="static">
           <Toolbar>
             <IconButton
