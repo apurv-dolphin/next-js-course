@@ -32,9 +32,9 @@ export default function ProductList(props) {
 
   return (
     <Grid container spacing={2} className={classes.grid}>
-      {checkvalue.length === 0 ? (
+      {checkvalue?.length === 0 ? (
         <>
-          {data.map((newdata, index) => (
+          {data?.map((newdata, index) => (
             <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={index}>
               <Card className={classes.root}>
                 <CardActionArea>
@@ -79,7 +79,7 @@ export default function ProductList(props) {
         </>
       ) : (
         <>
-          {filterData.map((newdata, index) => (
+          {filterData?.map((newdata, index) => (
             <Grid item xs={12} sm={6} md={4} lg={3} xl={2} key={index}>
               <Card className={classes.root}>
                 <CardActionArea>

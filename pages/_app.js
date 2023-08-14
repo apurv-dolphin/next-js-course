@@ -6,9 +6,10 @@ import Footer from "./components/footer";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import LoadingBar from "react-top-loading-bar";
-import UsePointerPosition from "./components/usePointerPosition";
-import UseDelayedValue from "./components/useDelayedValue";
-import Dot from "./components/Dot";
+// import usePointerPosition from "./components/usePointerPosition";
+// import useDelayedValue from "./components/useDelayedValue";
+
+// import Dot from "./components/Dot";
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
@@ -16,16 +17,16 @@ export default function App({ Component, pageProps }) {
   const [total, setTotal] = useState(0);
   const [progress, setProgress] = useState(0);
 
-  const pos1 = UsePointerPosition();
-  const pos2 = UseDelayedValue(pos1, 100);
-  const pos3 = UseDelayedValue(pos2, 90);
-  const pos4 = UseDelayedValue(pos3, 80);
-  const pos5 = UseDelayedValue(pos4, 70);
-  const pos6 = UseDelayedValue(pos5, 60);
-  const pos7 = UseDelayedValue(pos6, 50);
-  const pos8 = UseDelayedValue(pos7, 40);
-  const pos9 = UseDelayedValue(pos8, 30);
-  const pos10 = UseDelayedValue(pos9, 20);
+  // const pos1 = usePointerPosition();
+  // const pos2 = useDelayedValue(pos1, 100);
+  // const pos3 = useDelayedValue(pos2, 90);
+  // const pos4 = useDelayedValue(pos3, 80);
+  // const pos5 = useDelayedValue(pos4, 70);
+  // const pos6 = useDelayedValue(pos5, 60);
+  // const pos7 = useDelayedValue(pos6, 50);
+  // const pos8 = useDelayedValue(pos7, 40);
+  // const pos9 = useDelayedValue(pos8, 30);
+  // const pos10 = useDelayedValue(pos9, 20);
 
   const saveCart = (newCart) => {
     localStorage.setItem("cart", JSON.stringify(newCart));
@@ -94,7 +95,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <Dot position={pos1} opacity={1} />
+      {/* <Dot position={pos1} opacity={1} />
       <Dot position={pos2} opacity={0.9} />
       <Dot position={pos3} opacity={0.8} />
       <Dot position={pos4} opacity={0.7} />
@@ -103,7 +104,7 @@ export default function App({ Component, pageProps }) {
       <Dot position={pos7} opacity={0.4} />
       <Dot position={pos8} opacity={0.3} />
       <Dot position={pos9} opacity={0.1} />
-      <Dot position={pos10} opacity={0.1} />
+      <Dot position={pos10} opacity={0.1} /> */}
       <Navbar
         cart={cart}
         addTOCart={addTOCart}

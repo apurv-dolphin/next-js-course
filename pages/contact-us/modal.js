@@ -40,16 +40,16 @@ export default function FormModal(props) {
               Form Details
             </Typography>
             <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-              first name : {formData.firstName}
+              first name : {formData?.firstName || ""}
             </Typography>
             <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-              last name : {formData.lastName}
+              last name : {formData?.lastName || ""}
             </Typography>
             <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-              email : {formData.email}
+              email : {formData?.email}
             </Typography>
             <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-              contactNo : {formData.contactNo}
+              contactNo : {formData?.contactNo || ""}
             </Typography>
           </Box>
         </Fade>

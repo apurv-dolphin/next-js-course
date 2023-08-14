@@ -54,7 +54,7 @@ export default function EditModal(props) {
           type="text"
           fullWidth
           variant="standard"
-          defaultValue={singleData.firstName || ""}
+          defaultValue={singleData?.firstName || ""}
           onChange={handleChange}
         />
         <TextField
@@ -65,7 +65,7 @@ export default function EditModal(props) {
           type="text"
           fullWidth
           variant="standard"
-          defaultValue={singleData.lastName || ""}
+          defaultValue={singleData?.lastName || ""}
           onChange={handleChange}
         />
         <TextField
@@ -76,7 +76,7 @@ export default function EditModal(props) {
           type="email"
           fullWidth
           variant="standard"
-          defaultValue={singleData.email || ""}
+          defaultValue={singleData?.email || ""}
           onChange={handleChange}
         />
         <TextField
@@ -87,10 +87,10 @@ export default function EditModal(props) {
           type="number"
           fullWidth
           variant="standard"
-          defaultValue={singleData.contactNo || ""}
+          defaultValue={singleData?.contactNo || ""}
           onChange={handleChange}
         />
-        <Rating name="ratingValue" value={singleData.ratingValue} readOnly />
+        <Rating name="ratingValue" value={singleData?.ratingValue} readOnly />
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>Cancel</Button>
