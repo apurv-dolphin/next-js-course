@@ -1,30 +1,30 @@
-import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
-import PlayArrowIcon from '@material-ui/icons/PlayArrow';
-import SkipNextIcon from '@material-ui/icons/SkipNext';
+import React from "react";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import IconButton from "@material-ui/core/IconButton";
+import Typography from "@material-ui/core/Typography";
+import SkipPreviousIcon from "@material-ui/icons/SkipPrevious";
+import PlayArrowIcon from "@material-ui/icons/PlayArrow";
+import SkipNextIcon from "@material-ui/icons/SkipNext";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
+    display: "flex",
   },
   details: {
-    display: 'flex',
-    flexDirection: 'column',
+    display: "flex",
+    flexDirection: "column",
   },
   content: {
-    flex: '1 0 auto',
+    flex: "1 0 auto",
   },
   cover: {
     width: 151,
   },
   controls: {
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
     paddingLeft: theme.spacing(1),
     paddingBottom: theme.spacing(1),
   },
@@ -51,13 +51,21 @@ export default function AdvetiseCard() {
         </CardContent>
         <div className={classes.controls}>
           <IconButton aria-label="previous">
-            {theme.direction === 'rtl' ? <SkipNextIcon /> : <SkipPreviousIcon />}
+            {theme.direction === "rtl" ? (
+              <SkipNextIcon />
+            ) : (
+              <SkipPreviousIcon />
+            )}
           </IconButton>
           <IconButton aria-label="play/pause">
             <PlayArrowIcon className={classes.playIcon} />
           </IconButton>
           <IconButton aria-label="next">
-            {theme.direction === 'rtl' ? <SkipPreviousIcon /> : <SkipNextIcon />}
+            {theme.direction === "rtl" ? (
+              <SkipPreviousIcon />
+            ) : (
+              <SkipNextIcon />
+            )}
           </IconButton>
         </div>
       </div>
