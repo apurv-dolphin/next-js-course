@@ -9,9 +9,9 @@ export default function Checkboxs(props) {
 
   const checkValues = () => {
     if (open) {
-      return categoryItems;
+      return categoryItems || []; // Return an empty array if categoryItems is undefined
     }
-    return categoryItems.slice(0, MAX_ITEMS);
+    return categoryItems?.slice(0, MAX_ITEMS) || [];
   };
 
   const toggle = () => setOpen(!open);
@@ -21,7 +21,7 @@ export default function Checkboxs(props) {
       <div>
         <h2>Filter</h2>
         <hr />
-        {checkValues().map((item, index) => {
+        {checkValues()?.map((item, index) => {
           return (
             <div key={index} style={{ display: "flex" }}>
               <input

@@ -1,24 +1,21 @@
 import { FaReact } from "react-icons/fa";
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
+// import Link from "next/link";
+import React, { useEffect } from "react";
 import styles from "../styles/blog.module.css";
-import Blogdata from "./blogdata/blogdata";
+// import Blogdata from "./blogdata/blogdata";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 
 const ScrollToTop = dynamic(() => import("./scrollToTop"));
 
 export default function Blog() {
-  const [data, setDate] = useState(Blogdata);
+  // const [data, setData] = useState([]);
   const router = useRouter();
 
-  const sortedData = data.sort(function (a, b) {
-    return a.id - b.id;
-  });
-
-  useEffect(() => {
-    setDate(sortedData);
-  }, [sortedData]);
+  // useEffect(() => {
+  //   const sortedData = Blogdata.sort((a, b) => a.id - b.id);
+  //   setData(sortedData);
+  // }, []);
 
   useEffect(() => {
     const token = JSON.parse(localStorage.getItem("token"));
@@ -39,7 +36,7 @@ export default function Blog() {
           <FaReact className={styles.iconright} />
         </div>
       </div>
-      {data.map((newdata) => (
+      {/* {data.map((newdata) => (
         <div key={newdata.id} className={styles.blogitems}>
           <Link href={`/blogpost/${newdata.slug}`}>
             <h2 className={styles.bloagheader}>{newdata.title}</h2>
@@ -48,7 +45,7 @@ export default function Blog() {
             {newdata.shortdiscription}
           </p>
         </div>
-      ))}
+      ))} */}
       <ScrollToTop />
     </div>
   );

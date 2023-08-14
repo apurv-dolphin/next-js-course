@@ -21,3 +21,8 @@ export default function Dot(props) {
     />
   );
 }
+
+Dot.defaultProps = {
+  position: { x: 0, y: 0 }, // Set default position
+  opacity: 1, // Set default opacity
+};

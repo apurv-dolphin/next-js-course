@@ -1,28 +1,29 @@
-import Image from "next/image";
-import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
-import Blogdata from "../blogdata/blogdata";
-import styles from "../../styles/blogpost.module.css";
+// import Image from "next/image";
+// import { useRouter } from "next/router";
+import React  from "react";
+// import Blogdata from "../blogdata/blogdata";
+// import styles from "../../styles/blogpost.module.css";
 
 export default function Slug() {
-  const [data, ] = useState(Blogdata);
-  const [blog, setBlog] = useState();
-  const router = useRouter();
-  const { slug } = router.query;
+  // const [data] = useState(Blogdata);
+  // const [blog, setBlog] = useState([]);
+  // const router = useRouter();
+  // const { slug } = router.query;
 
-  const singleblog = data.filter((elem) => {
-    if (elem.slug === slug) {
-      return elem;
-    }
-  });
+  // const singleblog = data.filter((elem) => {
+  //   if (elem.slug === slug) {
+  //     return elem;
+  //   }
+  // });
 
-  useEffect(() => {
-    setBlog(singleblog);
-  }, [slug]);
+  // useEffect(() => {
+  //   setBlog(singleblog);
+  // }, [slug]);
 
   return (
     <>
-      <div>
+     <h1>slug</h1>
+      {/* <div>
         {blog &&
           blog.map((newblog, index) => (
             <div key={index}>
@@ -52,7 +53,7 @@ export default function Slug() {
               </div>
             </div>
           ))}
-      </div>
+      </div> */}
     </>
   );
 }
