@@ -4,6 +4,7 @@ import { Button, TextField } from "@mui/material";
 import FormModal from "./modal";
 import { useRouter } from "next/router";
 import RatingStar from "../components/ratingStar";
+import Layout from "../components/Layout";
 
 export default function About() {
   const [formData, setFormData] = useState({
@@ -172,123 +173,133 @@ export default function About() {
 
   return (
     <>
-      <div className={styles.parent}>
-        <div className={styles.contact} onKeyDown={handleEnter}>
-          <div className={styles.heading}>CONTACT US</div>
-          <div className={styles.main}>
-            <div className={styles.lable}>
-              <TextField
-                id="filled-firstname"
-                label="First Name"
-                name="firstName"
-                variant="filled"
-                value={formData.firstName || ""}
-                onChange={handleChange}
-                fullWidth
-              />
-              {!error.firstName ? "" : error.firstName}
+      <Layout title="Contact Page" description="Contact page.">
+        <div className={styles.parent}>
+          <div className={styles.contact} onKeyDown={handleEnter}>
+            <div className={styles.heading}>CONTACT US</div>
+            <div className={styles.main}>
+              <div className={styles.lable}>
+                <TextField
+                  id="filled-firstname"
+                  label="First Name"
+                  name="firstName"
+                  variant="filled"
+                  value={formData.firstName || ""}
+                  onChange={handleChange}
+                  fullWidth
+                />
+                {!error.firstName ? "" : error.firstName}
+              </div>
+              <div className={styles.lable}>
+                <TextField
+                  id="filled-lastname"
+                  label="Last Name"
+                  name="lastName"
+                  variant="filled"
+                  value={formData.lastName || ""}
+                  onChange={handleChange}
+                  fullWidth
+                />
+                {!error.lastName ? "" : error.lastName}
+              </div>
+              <div className={styles.lable}>
+                <TextField
+                  id="filled-email"
+                  label="Email"
+                  name="email"
+                  variant="filled"
+                  value={formData.email || ""}
+                  onChange={handleChange}
+                  fullWidth
+                />
+                {!error.email ? "" : error.email}
+              </div>
+              <div className={styles.lable}>
+                <TextField
+                  id="filled-contactnumber"
+                  type="number"
+                  name="contactNo"
+                  value={formData.contactNo || ""}
+                  label="Contact No."
+                  variant="filled"
+                  onChange={handleChange}
+                  fullWidth
+                />
+                {!error.contactNo ? "" : error.contactNo}
+              </div>
+              <div className={styles.lable}>
+                <RatingStar
+                  value={formData.ratingValue}
+                  handleChange={handleChange}
+                />
+              </div>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={handlesubmit}
+              >
+                Submit
+              </Button>
             </div>
-            <div className={styles.lable}>
-              <TextField
-                id="filled-lastname"
-                label="Last Name"
-                name="lastName"
-                variant="filled"
-                value={formData.lastName || ""}
-                onChange={handleChange}
-                fullWidth
-              />
-              {!error.lastName ? "" : error.lastName}
-            </div>
-            <div className={styles.lable}>
-              <TextField
-                id="filled-email"
-                label="Email"
-                name="email"
-                variant="filled"
-                value={formData.email || ""}
-                onChange={handleChange}
-                fullWidth
-              />
-              {!error.email ? "" : error.email}
-            </div>
-            <div className={styles.lable}>
-              <TextField
-                id="filled-contactnumber"
-                type="number"
-                name="contactNo"
-                value={formData.contactNo || ""}
-                label="Contact No."
-                variant="filled"
-                onChange={handleChange}
-                fullWidth
-              />
-              {!error.contactNo ? "" : error.contactNo}
-            </div>
-            <div className={styles.lable}>
-              <RatingStar
-                value={formData.ratingValue}
-                handleChange={handleChange}
-              />
-            </div>
-            <Button variant="contained" color="primary" onClick={handlesubmit}>
-              Submit
-            </Button>
           </div>
         </div>
-      </div>
-      {open && (
-        <FormModal formData={formData} handleClose={handleClose} open={open} />
-      )}
-      <div className={styles.passChecker}>
-        <h1 className={styles.conatinerHeader}>Password Strength Checker</h1>
-        <div className={styles.subContainer}>
-          <input
-            className={styles.passinput}
-            type={passHide ? "password" : "text"}
-            value={test}
-            onChange={handleTestChange}
+        {open && (
+          <FormModal
+            formData={formData}
+            handleClose={handleClose}
+            open={open}
           />
+        )}
+        <div className={styles.passChecker}>
+          <h1 className={styles.conatinerHeader}>Password Strength Checker</h1>
+          <div className={styles.subContainer}>
+            <input
+              className={styles.passinput}
+              type={passHide ? "password" : "text"}
+              value={test}
+              onChange={handleTestChange}
+            />
 
-          <div className={styles.buttonContainer}>
-            <button
-              className={styles.passBtn}
-              style={{
-                marginRight: "10px",
-                background: "#007afa",
-                color: "#fff",
-              }}
-              onClick={ShowPass}
-            >
-              {passHide ? "Show" : "Hide"}
-            </button>
+            <div className={styles.buttonContainer}>
+              <button
+                className={styles.passBtn}
+                style={{
+                  marginRight: "10px",
+                  background: "#007afa",
+                  color: "#fff",
+                }}
+                onClick={ShowPass}
+              >
+                {passHide ? "Show" : "Hide"}
+              </button>
 
-            <button
-              className={styles.passBtn}
-              style={{
-                background: "red",
-                color: "#ffff",
-              }}
-              onClick={handleClear}
-            >
-              Clear
-            </button>
-          </div>
+              <button
+                className={styles.passBtn}
+                style={{
+                  background: "red",
+                  color: "#ffff",
+                }}
+                onClick={handleClear}
+              >
+                Clear
+              </button>
+            </div>
 
-          <div className={styles.textContainer}>
-            <p style={{ color: fontColor }}>{massage}</p>
-            {testError.length === 0 && test !== "" && (
-              <p style={{ color: "green" }}>Password is valid. Success!</p>
-            )}
+            <div className={styles.textContainer}>
+              <p style={{ color: fontColor }}>{massage}</p>
+              {testError.length === 0 && test !== "" && (
+                <p style={{ color: "green" }}>Password is valid. Success!</p>
+              )}
 
-            {testError?.map((error, index) => (
-              <p key={index} style={{ color: fontColor }}>
-                {error}
-              </p>
-            ))}
+              {testError?.map((error, index) => (
+                <p key={index} style={{ color: fontColor }}>
+                  {error}
+                </p>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      </Layout>
     </>
   );
 }
