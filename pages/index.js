@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import CustomCarousel from "./components/carousel";
 import AdvetiseCard from "./components/card";
-import Head from "next/head";
+import Layout from "./components/Layout";
 
 export default function Home() {
   const router = useRouter();
@@ -18,16 +18,14 @@ export default function Home() {
   }, []);
   return (
     <>
-      <Head>
-        <title>Your Page Title</title>
-        <meta name="description" content="Your meta description goes here." />
-      </Head>
-      <CustomCarousel />
-      <div className={styles.maincard}>
-        <AdvetiseCard />
-        <AdvetiseCard />
-        <AdvetiseCard />
-      </div>
+      <Layout title="Home Page" description="Welcome to my home page.">
+        <CustomCarousel />
+        <div className={styles.maincard}>
+          <AdvetiseCard />
+          <AdvetiseCard />
+          <AdvetiseCard />
+        </div>
+      </Layout>
     </>
   );
 }

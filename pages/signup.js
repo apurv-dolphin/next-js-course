@@ -2,6 +2,7 @@ import { Button, TextField } from "@material-ui/core";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import styles from "../styles/contact.module.css";
+import Layout from "./components/Layout";
 
 export default function Signup() {
   const [datas, setDatas] = useState([]);
@@ -67,7 +68,7 @@ export default function Signup() {
 
   let storeData = () => {
     const data = [];
-    const result = data.concat( datas || [], formData);
+    const result = data.concat(datas || [], formData);
     localStorage.setItem("userData", JSON.stringify(result));
   };
 
@@ -92,83 +93,89 @@ export default function Signup() {
 
   return (
     <>
-      <div className={styles.parent} style={{ marginBottom: "20px" }}>
-        <div className={styles.contact}>
-          <div className={styles.heading}>SIGN UP</div>
-          <div className={styles.main}>
-            <div className={styles.lable}>
-              <TextField
-                id="filled-basic"
-                label="First Name"
-                name="firstName"
-                variant="filled"
-                value={formData.firstName || ""}
-                onChange={handleChange}
-                fullWidth
-              />
-              {!error.firstName ? "" : error.firstName}
+      <Layout title="Registration Page" description="Registration page.">
+        <div className={styles.parent} style={{ marginBottom: "20px" }}>
+          <div className={styles.contact}>
+            <div className={styles.heading}>SIGN UP</div>
+            <div className={styles.main}>
+              <div className={styles.lable}>
+                <TextField
+                  id="filled-basic"
+                  label="First Name"
+                  name="firstName"
+                  variant="filled"
+                  value={formData.firstName || ""}
+                  onChange={handleChange}
+                  fullWidth
+                />
+                {!error.firstName ? "" : error.firstName}
+              </div>
+              <div className={styles.lable}>
+                <TextField
+                  id="filled-basic"
+                  label="Last Name"
+                  name="lastName"
+                  variant="filled"
+                  value={formData.lastName || ""}
+                  onChange={handleChange}
+                  fullWidth
+                />
+                {!error.lastName ? "" : error.lastName}
+              </div>
+              <div className={styles.lable}>
+                <TextField
+                  id="filled-basic"
+                  label="Email"
+                  name="email"
+                  variant="filled"
+                  value={formData.email || ""}
+                  onChange={handleChange}
+                  fullWidth
+                />
+                {!error.email ? "" : error.email}
+              </div>
+              <div className={styles.lable}>
+                <TextField
+                  id="filled-basic"
+                  type="number"
+                  name="contactNo"
+                  value={formData.contactNo || ""}
+                  label="Contact No."
+                  variant="filled"
+                  onChange={handleChange}
+                  fullWidth
+                />
+                {!error.contactNo ? "" : error.contactNo}
+              </div>
+              <div className={styles.lable}>
+                <TextField
+                  id="filled-basic"
+                  name="password"
+                  value={formData.password || ""}
+                  label="Password"
+                  variant="filled"
+                  onChange={handleChange}
+                  fullWidth
+                />
+                {!error.password ? "" : error.password}
+              </div>
+              <h4>
+                already have an account! so{" "}
+                <Link href="/login" style={{ color: "blue" }}>
+                  Login here!
+                </Link>
+              </h4>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={handlesubmit}
+              >
+                Submit
+              </Button>
             </div>
-            <div className={styles.lable}>
-              <TextField
-                id="filled-basic"
-                label="Last Name"
-                name="lastName"
-                variant="filled"
-                value={formData.lastName || ""}
-                onChange={handleChange}
-                fullWidth
-              />
-              {!error.lastName ? "" : error.lastName}
-            </div>
-            <div className={styles.lable}>
-              <TextField
-                id="filled-basic"
-                label="Email"
-                name="email"
-                variant="filled"
-                value={formData.email || ""}
-                onChange={handleChange}
-                fullWidth
-              />
-              {!error.email ? "" : error.email}
-            </div>
-            <div className={styles.lable}>
-              <TextField
-                id="filled-basic"
-                type="number"
-                name="contactNo"
-                value={formData.contactNo || ""}
-                label="Contact No."
-                variant="filled"
-                onChange={handleChange}
-                fullWidth
-              />
-              {!error.contactNo ? "" : error.contactNo}
-            </div>
-            <div className={styles.lable}>
-              <TextField
-                id="filled-basic"
-                name="password"
-                value={formData.password || ""}
-                label="Password"
-                variant="filled"
-                onChange={handleChange}
-                fullWidth
-              />
-              {!error.password ? "" : error.password}
-            </div>
-            <h4>
-              already have an account! so{" "}
-              <Link href="/login" style={{ color: "blue" }}>
-                Login here!
-              </Link>
-            </h4>
-            <Button variant="contained" color="primary" onClick={handlesubmit}>
-              Submit
-            </Button>
           </div>
         </div>
-      </div>
+      </Layout>
     </>
   );
 }

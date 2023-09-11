@@ -12,6 +12,7 @@ import React, { useEffect, useState } from "react";
 import styles from "../styles/login.module.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Layout from "./components/Layout";
 
 export default function Login() {
   const router = useRouter();
@@ -82,59 +83,65 @@ export default function Login() {
 
   return (
     <>
-      <div className={styles.parent}>
-        <div className={styles.contact}>
-          <div className={styles.heading}>LOGIN</div>
-          <div className={styles.main}>
-            <div className={styles.lable}>
-              <TextField
-                id="filled-email"
-                label="Email"
-                name="email"
-                variant="filled"
-                value={loginData.email || ""}
-                onChange={handleChange}
-                fullWidth
-              />
-            </div>
-            <div className={styles.lable}>
-              <FormControl
-                style={{ width: "100%", background: "rgba(219,219,219)" }}
-              >
-                <InputLabel htmlFor="standard-adornment-password">
-                  password
-                </InputLabel>
-                <Input
-                  id="standard-adornment-password"
-                  type={show ? "text" : "password"}
-                  endAdornment={
-                    <InputAdornment position="end">
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={handleClickShowPassword}
-                      >
-                        {show ? <Visibility /> : <VisibilityOff />}
-                      </IconButton>
-                    </InputAdornment>
-                  }
-                  name="password"
+      <Layout title="Login Page" description="Login page.">
+        <div className={styles.parent}>
+          <div className={styles.contact}>
+            <div className={styles.heading}>LOGIN</div>
+            <div className={styles.main}>
+              <div className={styles.lable}>
+                <TextField
+                  id="filled-email"
+                  label="Email"
+                  name="email"
+                  variant="filled"
+                  value={loginData.email || ""}
                   onChange={handleChange}
-                  value={loginData.password || ""}
+                  fullWidth
                 />
-              </FormControl>
+              </div>
+              <div className={styles.lable}>
+                <FormControl
+                  style={{ width: "100%", background: "rgba(219,219,219)" }}
+                >
+                  <InputLabel htmlFor="standard-adornment-password">
+                    password
+                  </InputLabel>
+                  <Input
+                    id="standard-adornment-password"
+                    type={show ? "text" : "password"}
+                    endAdornment={
+                      <InputAdornment position="end">
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          onClick={handleClickShowPassword}
+                        >
+                          {show ? <Visibility /> : <VisibilityOff />}
+                        </IconButton>
+                      </InputAdornment>
+                    }
+                    name="password"
+                    onChange={handleChange}
+                    value={loginData.password || ""}
+                  />
+                </FormControl>
+              </div>
+              <h4>
+                already have an account! so{" "}
+                <Link href="/signup" style={{ color: "blue" }}>
+                  Sign-up here!
+                </Link>
+              </h4>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={handlesubmit}
+              >
+                Submit
+              </Button>
             </div>
-            <h4>
-              already have an account! so{" "}
-              <Link href="/signup" style={{ color: "blue" }}>
-                Sign-up here!
-              </Link>
-            </h4>
-            <Button variant="contained" color="primary" onClick={handlesubmit}>
-              Submit
-            </Button>
           </div>
         </div>
-      </div>
+      </Layout>
     </>
   );
 }
