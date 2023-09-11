@@ -1,5 +1,6 @@
 import { Grid } from "@material-ui/core";
 import dynamic from "next/dynamic";
+import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
@@ -61,6 +62,10 @@ export default function Product() {
 
   return (
     <>
+      <Head>
+        <title>Your Page Title</title>
+        <meta name="description" content="Your meta description goes here." />
+      </Head>
       <Grid container spacing={3} style={{ width: "100%" }}>
         <Grid item xs={1}>
           <div style={{ display: "flex", margin: "0px auto", width: "0px" }}>
