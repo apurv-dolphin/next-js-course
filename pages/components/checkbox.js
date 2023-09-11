@@ -19,7 +19,7 @@ export default function Checkboxs(props) {
   return (
     <>
       <div>
-        <h2>Filter</h2>
+        <h1>Filter</h1>
         <hr />
         {checkValues()?.map((item, index) => {
           return (

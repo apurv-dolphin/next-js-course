@@ -43,7 +43,7 @@ export default function CartCard({ cart, removeTOCart, addTOCart }) {
   return (
     <>
       {Object.keys(cart).length === 0 && <h3>Your cart is emapty!</h3>}
-      {Object.keys(cart).map((newcart, index) => {
+      {Object.keys(cart)?.map((newcart, index) => {
         return (
           <Card className={classes.root} key={index}>
             <div className={classes.details}>

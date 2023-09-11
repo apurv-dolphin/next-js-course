@@ -281,7 +281,7 @@ export default function About() {
               <p style={{ color: "green" }}>Password is valid. Success!</p>
             )}
 
-            {testError.map((error, index) => (
+            {testError?.map((error, index) => (
               <p key={index} style={{ color: fontColor }}>
                 {error}
               </p>

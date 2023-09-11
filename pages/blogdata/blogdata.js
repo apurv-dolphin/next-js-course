@@ -17,7 +17,7 @@ export default function Blogdata() {
       id: "10",
       title: "How to learn React ContextAPI",
       shortdiscription:
-        "Context is a built-in API introduced in ​​React 16.3. It makes it possible to pass data from parent to children nested deep down the component tree directly, instead of passing it down through a chain of props.",
+        "Context is a built-in API introduced in React 16.3. It makes it possible to pass data from parent to children nested deep down the component tree directly, instead of passing it down through a chain of props.",
       content:
         "The React Context API is a component structure, which allows us to share data across all levels of the application. The main aim of Context API is to solve the problem of prop drilling (also called Threading). The Context API in React are given below.React.createContext.",
       author: "Apurv Khalas",
@@ -192,7 +192,8 @@ export default function Blogdata() {
       content:
         "Nuxt.js is a server-side rendering framework built on Vue.js. It abstracts away most of the complex configuration involved in managing asynchronous data, middleware, and routing. It also helps structure Vue.js applications using industry-standard architecture for building simple or enterprise Vue.js applications.nuxtServerInit (Action): This is the first lifecycle hook that is called on the server-side if Vuex store is enabled. It is a Vuex action that is called only on server-side to pre-populate the store and finally, it can be used to dispatch other actions in the Vuex store.",
       author: "Apurv Khalas",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqrTedUNeHoi4bSOkdPDfnsHsnlW0GDtJfCQ&usqp=CAU",
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqrTedUNeHoi4bSOkdPDfnsHsnlW0GDtJfCQ&usqp=CAU",
       vedio: "https://www.youtube.com/embed/ww94Jvi8JJo",
       slug: "how-to-learn-nuxt-js",
     },

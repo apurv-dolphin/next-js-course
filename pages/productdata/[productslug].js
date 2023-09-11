@@ -55,7 +55,7 @@ export default function Productslug(props) {
     <div className={styles.productcontainer}>
       <div className={styles.productcard}>
         {singleProduct &&
-          singleProduct.map((newproduct, index) => (
+          singleProduct?.map((newproduct, index) => (
             <>
               <Card style={{ width: "300px" }} key={index}>
                 <CardActionArea>

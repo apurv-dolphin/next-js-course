@@ -15,7 +15,7 @@ export default function Product() {
   const [filterData, setFilterData] = useState([]);
   const router = useRouter();
 
-  let categoryItems = [...new Set(data.map((Val) => Val.category))];
+  let categoryItems = [...new Set(data?.map((Val) => Val.category))];
 
   let filterdata = [];
 
@@ -29,8 +29,8 @@ export default function Product() {
     }
   };
   useEffect(() => {
-    checkvalue.map((item) =>
-      data.map((newitem) => {
+    checkvalue?.map((item) =>
+      data?.map((newitem) => {
         if (newitem.category === item) {
           filterdata = [...filterdata, newitem];
         }

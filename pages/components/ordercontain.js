@@ -50,7 +50,7 @@ export default function OrderContain({ cart, total }) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {Object.keys(cart).map((newdata, index) => (
+            {Object.keys(cart)?.map((newdata, index) => (
               <TableRow key={index}>
                 <TableCell>{cart[newdata].name}</TableCell>
                 <TableCell>{cart[newdata].category}</TableCell>
