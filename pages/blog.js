@@ -4,19 +4,19 @@ import React, { useEffect, useState } from "react";
 import styles from "../styles/blog.module.css";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
-import Blogdata from "./blogdata/blogdata";
+// import Blogdata from "./blogdata/blogdata";
 
 const ScrollToTop = dynamic(() => import("./scrollToTop"));
 
 export default function Blog() {
-  const data = Blogdata();
-  console.log(data);
+  // const data = Blogdata();
+  // console.log(data);
   const [sort, setSort] = useState([])
   const router = useRouter();
 
   useEffect(() => {
-    const sortedData = data.sort((a, b) => a.id - b.id);
-    setSort(sortedData);
+    // const sortedData = data.sort((a, b) => a.id - b.id);
+    setSort([]);
   }, []);
 
   useEffect(() => {
